@@ -19,7 +19,7 @@ const BOTNO = 1687630;
 
 server.use(bodyParser.json());
 
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 3003);
 
 server.get('/', (req, res) => {
     res.send('Hello World!');
@@ -27,6 +27,7 @@ server.get('/', (req, res) => {
 
 server.post('/callback', (req, res) => {
     res.sendStatus(200);
+    console.log({req});
 
     const message = req.body.content.text;
     const roomId = req.body.source.roomId;
